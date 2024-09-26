@@ -1,0 +1,96 @@
+module Test; 
+import Character;
+
+test : IO ();
+test = (
+    // is_alnum
+    eval assert_eq(|_|"is_alnum", is_alnum('A'), true);
+    eval assert_eq(|_|"is_alnum", is_alnum('0'), true);
+    eval assert_eq(|_|"is_alnum", is_alnum('+'), false);
+
+    // is_alpha
+    eval assert_eq(|_|"is_alpha", is_alpha('A'), true);
+    eval assert_eq(|_|"is_alpha", is_alpha('0'), false);
+    eval assert_eq(|_|"is_alpha", is_alpha('+'), false);
+
+    // is_blank
+    eval assert_eq(|_|"is_blank 1", is_blank('A'), false);
+    eval assert_eq(|_|"is_blank 2", is_blank('0'), false);
+    eval assert_eq(|_|"is_blank 3", is_blank(' '), true);
+    eval assert_eq(|_|"is_blank 4", is_blank('\t'), true);
+    eval assert_eq(|_|"is_blank 5", is_blank('\n'), false);
+    eval assert_eq(|_|"is_blank 6", is_blank('\r'), false);
+
+    // is_cntrl
+    eval assert_eq(|_|"is_cntrl", is_cntrl('A'), false);
+    eval assert_eq(|_|"is_cntrl", is_cntrl('0'), false);
+    eval assert_eq(|_|"is_cntrl", is_cntrl('\0'), true);
+    eval assert_eq(|_|"is_cntrl", is_cntrl('\t'), true);
+    eval assert_eq(|_|"is_cntrl", is_cntrl('\n'), true);
+    eval assert_eq(|_|"is_cntrl", is_cntrl('\r'), true);
+
+    // is_digit
+    eval assert_eq(|_|"is_digit", is_digit('0'), true);
+    eval assert_eq(|_|"is_digit", is_digit('9'), true);
+    eval assert_eq(|_|"is_digit", is_digit('+'), false);
+
+    // is_graph
+    eval assert_eq(|_|"is_graph", is_graph('A'), true);
+    eval assert_eq(|_|"is_graph", is_graph('0'), true);
+    eval assert_eq(|_|"is_graph", is_graph(' '), false);
+    eval assert_eq(|_|"is_graph", is_graph('\n'), false);
+    eval assert_eq(|_|"is_graph", is_graph('\t'), false);
+    eval assert_eq(|_|"is_graph", is_graph('\0'), false);
+
+    // is_lower
+    eval assert_eq(|_|"is_lower", is_lower('a'), true);
+    eval assert_eq(|_|"is_lower", is_lower('A'), false);
+    eval assert_eq(|_|"is_lower", is_lower('+'), false);
+
+    // is_print
+    eval assert_eq(|_|"is_print", is_print('A'), true);
+    eval assert_eq(|_|"is_print", is_print('0'), true);
+    eval assert_eq(|_|"is_print", is_print(' '), true);
+    eval assert_eq(|_|"is_print", is_print('\n'), false);
+    eval assert_eq(|_|"is_print", is_print('\t'), false);
+    eval assert_eq(|_|"is_print", is_print('\0'), false);
+
+    // is_punct
+    eval assert_eq(|_|"is_punct 1", is_punct('.'), true);
+    eval assert_eq(|_|"is_punct 2", is_punct(','), true);
+    eval assert_eq(|_|"is_punct 3", is_punct('+'), true);
+    eval assert_eq(|_|"is_punct 4", is_punct('A'), false);
+    eval assert_eq(|_|"is_punct 5", is_punct('0'), false);
+
+    // is_space
+    eval assert_eq(|_|"is_space", is_space(' '), true);
+    eval assert_eq(|_|"is_space", is_space('\t'), true);
+    eval assert_eq(|_|"is_space", is_space('\n'), true);
+    eval assert_eq(|_|"is_space", is_space('\r'), true);
+    eval assert_eq(|_|"is_space", is_space('A'), false);
+    eval assert_eq(|_|"is_space", is_space('0'), false);
+
+    // is_upper
+    eval assert_eq(|_|"is_upper", is_upper('A'), true);
+    eval assert_eq(|_|"is_upper", is_upper('a'), false);
+    eval assert_eq(|_|"is_upper", is_upper('+'), false);
+
+    // is_xdigit
+    eval assert_eq(|_|"is_xdigit 1", is_xdigit('A'), true);
+    eval assert_eq(|_|"is_xdigit 2", is_xdigit('a'), true);
+    eval assert_eq(|_|"is_xdigit 3", is_xdigit('0'), true);
+    eval assert_eq(|_|"is_xdigit 4", is_xdigit('x'), false);
+    eval assert_eq(|_|"is_xdigit 5", is_xdigit('+'), false);
+
+    // to_lower
+    eval assert_eq(|_|"to_lower 1", to_lower('A'), 'a');
+    eval assert_eq(|_|"to_lower 2", to_lower('a'), 'a');
+    eval assert_eq(|_|"to_lower 3", to_lower('+'), '+');
+
+    // to_upper
+    eval assert_eq(|_|"to_upper 1", to_upper('A'), 'A');
+    eval assert_eq(|_|"to_upper 2", to_upper('a'), 'A');
+    eval assert_eq(|_|"to_upper 3", to_upper('+'), '+');
+
+    pure()
+);
