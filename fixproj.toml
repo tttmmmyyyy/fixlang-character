@@ -1,6 +1,7 @@
 [general]
 name = "character"
 version = "1.0.0"
+description = "provides wrapper functions of C functions defined in ctypes.h."
 
 [build]
 files = ["character.fix"]
