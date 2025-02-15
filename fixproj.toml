@@ -1,6 +1,6 @@
 [general]
 name = "character"
-version = "1.0.0"
+version = "1.0.1"
 description = "provides wrapper functions of C functions defined in ctypes.h."
 
 [build]
