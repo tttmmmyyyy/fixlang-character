@@ -1,4 +1,12 @@
 // This module provides wrapper functions of C functions defined in ctypes.h.
+//
+// Each function takes a character as a byte (`U8`), such as the character literal `'a'`.
+//
+// ```fix
+// assert(|_|"", is_digit('7'));;
+// assert(|_|"", !is_alpha('7'));;
+// assert_eq(|_|"", to_upper('a'), 'A')
+// ```
 module Character;
 
 is_alnum : U8 -> Bool;
